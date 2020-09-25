@@ -1,0 +1,2 @@
+User clicks tab on the nav -> page associated with tab
+

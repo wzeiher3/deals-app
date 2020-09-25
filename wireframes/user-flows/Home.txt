@@ -1,0 +1,3 @@
+User clicks tab on the nav -> page associated with tab
+
+User clicks on a deal -> deal expands and displays contents

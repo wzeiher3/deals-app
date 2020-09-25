@@ -1,0 +1,7 @@
+user enters a valid email/password and clicks submit -> home screen
+
+User enters a valid email, but no password then submits -> error appears to supply email
+
+User enters an email that's already taken -> message appears that email is taken, and prompts user to sign in if it's your account
+
+User enters wrong password -> error message appears to input correct password

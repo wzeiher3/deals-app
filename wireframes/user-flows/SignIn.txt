@@ -1,0 +1,3 @@
+user enters a valid email/password and clicks submit -> home screen
+
+User enters wrong password -> error message appears to input correct password
