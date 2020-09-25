@@ -1,0 +1,9 @@
+User clicks tab on the nav -> page associated with tab
+
+user enters a valid name/price/distance and clicks submit -> home screen
+
+User enters everything but name -> error message urging to enter a name
+
+User enters everything but distance -> error message urging to enter a distance
+
+User enters everything but a price -> error message urging to enter a price
