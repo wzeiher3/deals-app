@@ -40,7 +40,8 @@ static contextType = ApiContext;
                      {name}
                     </Link>
                 </h2>
-                    <p>{content}</p>
+      <p>{content}, {price}</p>
+                    
           </div>
       )
   }
