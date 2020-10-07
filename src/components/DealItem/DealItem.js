@@ -1,6 +1,7 @@
 import React from 'react'
 import ApiContext from '../../contexts/ApiContext';
 import config from '../../config'
+import {Link} from 'react-router-dom'
 
 export default class DealItem extends React.Component{
 static contextType = ApiContext;
@@ -34,7 +35,11 @@ static contextType = ApiContext;
       const { day, distance, price, name, id, content } = this.props;
       return (
           <div className="DealObj">
-                <h2>{name}</h2>
+                <h2 className="deal_title">
+                   <Link to={`/deals/${id}`}>  
+                     {name}
+                    </Link>
+                </h2>
                     <p>{content}</p>
           </div>
       )

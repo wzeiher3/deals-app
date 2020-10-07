@@ -31,10 +31,14 @@ footer {
   background-color: #aaa;
 }
 header {
-  padding: 12% 0;
+  padding: 3% 0;
 }
 
 .field{
   display: flex;
   flex-direction: column;
+}
+
+.DealObj{
+  background-color: #aaa;
 }

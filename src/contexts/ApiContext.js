@@ -5,4 +5,5 @@ export default React.createContext({
     addDeal: () => {},
     deleteDeal: () => {}, 
     filterDay: () => {},
+    findDeal: () => {},
 })

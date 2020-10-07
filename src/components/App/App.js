@@ -6,6 +6,7 @@ import config from '../../config'
 import AddDeal from '../AddDeal/AddDeal'
 //import LoginForm from '../LoginForm/LoginForm'
 //import RegistrationForm from '../RegistrationForm/RegistrationForm'
+import DealItemExpanded from '../DealItemExpanded/DealItemExpanded'
 import DealItem from '../DealItem/DealItem'
 import AllList from '../AllList/AllList'
 //import WeekForm from '../WeekForm/WeekForm'
@@ -65,6 +66,12 @@ class App extends React.Component {
     
     return deals.filter(deal => deal.day === weekdays[thisDay])
 }
+
+findDeal = (deals, dealId) => {
+    const newDeal = deals.find(deal => deal.id === dealId)
+    console.log(newDeal)
+    return newDeal;
+}
   
   
   renderMainRoutes() {
@@ -89,9 +96,10 @@ class App extends React.Component {
         /> */}
         <Route
           path='/deals/:dealId'
-          component={DealItem}
+          component={DealItemExpanded}
         />
         <Route
+          exact
           path='/deals'
           component={AllList}
         />
@@ -115,6 +123,7 @@ class App extends React.Component {
       addDeal: this.handleAddDeal,
       deleteDeal: this.handleDeleteDeal,
       filterDay: this.filterDay,
+      findDeal: this.findDeal,
     }
     return (
       <ApiContext.Provider value={value}>
@@ -122,7 +131,7 @@ class App extends React.Component {
           <Nav />
           <header className='App__header'>
             <h1>
-              <Link to='/'>Deal Tracker</Link>
+              <Link to='/'>Deals Tracker</Link>
               {' '}
               {/* <FontAwesomeIcon icon='check-double' /> */}
             </h1>

@@ -1,0 +1,8 @@
+#navBar{
+    display:flex;
+    flex-direction: row;
+}
+#navBar li {
+    list-style-type: none;
+    margin: auto;
+}

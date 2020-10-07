@@ -26,7 +26,7 @@ export default class AllList extends React.Component{
         <div className="All">
             <h2>All Deals</h2>
             <label htmlFor="filter" className="labels">Filter: </label>
-            <select className="filter" name="filter" defaultValue="price">
+            <select className="filter" name="filter" defaultValue="price" >
                 <option value="price">Price</option>            
                 <option value="distance">Distance</option>                                              
           </select>

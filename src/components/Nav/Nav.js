@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
+import './Nav.css'
 
 
 export default class Nav extends React.Component {
@@ -7,7 +8,7 @@ export default class Nav extends React.Component {
         return (
             <div>
                 <nav role="navigation">
-                    <ul>
+                    <ul id="navBar">
                         <li>
                             <Link to="/">Home</Link>
                         </li>
