@@ -20,6 +20,9 @@ export default class Nav extends React.Component {
                         <li>
                             <Link to="/about">About</Link>
                         </li>
+                        <li>
+                            <Link to="/add-deal">Add Deal</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -5,25 +5,17 @@ import DealItem from '../DealItem/DealItem'
 export default class HomeForm extends React.Component {
     static contextType = ApiContext;
 
-    filterDay(){
-        const { deals } = this.context;
-        const date = new Date();
-        const thisDay = date.getDay();
-
-        const weekdays = ["Sunday", "Monday", "tuesday", "wednesday", "thursday", 
-                            "friday", "saturday"];
-        
-        return deals.filter(deal => deal.day === weekdays[thisDay])
-    }
     
     render(){
-        const todaysDeals = this.filterDay();
+        const {deals} = this.context;
+        const todaysDeals = this.context.filterDay(deals);
         return (
             <div className="HomePage">
                 <h2>Your Deals for Today!</h2> 
                 {todaysDeals.map(deal => 
                     <DealItem 
                         id = {deal.id}
+                        key = {deal.id}
                         name = {deal.name}
                         price = {deal.price}
                         distance = {deal.distance}

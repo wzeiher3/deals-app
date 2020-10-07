@@ -34,6 +34,7 @@ export default class AllList extends React.Component{
                 {dealsList.map(deal => 
                     <DealItem 
                         id = {deal.id}
+                        key = {deal.id}
                         name = {deal.name}
                         price = {deal.price}
                         distance = {deal.distance}

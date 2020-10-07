@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import HomeForm from '../HomeForm/HomeForm'
 import config from '../../config'
-//import NewDeal from '../NewDeal/NewDeal'
+import AddDeal from '../AddDeal/AddDeal'
 //import LoginForm from '../LoginForm/LoginForm'
 //import RegistrationForm from '../RegistrationForm/RegistrationForm'
 import DealItem from '../DealItem/DealItem'
@@ -19,7 +19,8 @@ import About from '../About/About'
 class App extends React.Component {
   
   state = {
-    deals : []
+    deals : [], 
+    day: ""
   };
 
   componentDidMount(){
@@ -53,20 +54,32 @@ class App extends React.Component {
       deals: this.state.deals.filter(deal => deal.id !== dealId)
     })
   }
+
+  filterDay = deals => {
+    //const { deals } = this.context;
+    const date = new Date();
+    const thisDay = date.getDay();
+
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
+                        "Friday", "Saturday"];
+    
+    return deals.filter(deal => deal.day === weekdays[thisDay])
+}
   
   
   renderMainRoutes() {
     return (
       <>
         <Route
+          exact
           path='/'
           component={HomeForm}
         />
-        {/* <Route
-          path='/add-deal'
-          component={NewDeal}
-        />
         <Route
+          path='/add-deal'
+          component={AddDeal}
+        />
+        {/* <Route
           path='/login'
           component={LoginForm}
         />
@@ -101,6 +114,7 @@ class App extends React.Component {
       deals: this.state.deals,
       addDeal: this.handleAddDeal,
       deleteDeal: this.handleDeleteDeal,
+      filterDay: this.filterDay,
     }
     return (
       <ApiContext.Provider value={value}>
