@@ -20,11 +20,9 @@ static contextType = ApiContext;
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
         
-        return res.json()
       })
       .then(() => {
-        this.context.deletedeal(dealId)
-        this.props.onDeletedeal(dealId)
+        this.context.deleteDeal(dealId)
       })
       .catch(error => {
         console.error({ error })
@@ -35,13 +33,13 @@ static contextType = ApiContext;
       const { day, distance, price, name, id, content } = this.props;
       return (
           <div className="DealObj">
-                <h2 className="deal_title">
+                <h3 className="deal_title">
                    <Link to={`/deals/${id}`}>  
                      {name}
                     </Link>
-                </h2>
+                </h3>
       <p>{content}, {price}</p>
-                    
+          <button className="deleteBtn" onClick={e => this.handleClickDelete(e)}>delete</button>          
           </div>
       )
   }

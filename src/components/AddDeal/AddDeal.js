@@ -2,17 +2,25 @@ import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
 import config from '../../config'
 
-export default class AddDeal extends React.Component{
+export default class AddDeal extends React.Component {
     
-    static contextType = ApiContext;
+  static contextType = ApiContext;
 
   handleSubmit = e => {
     e.preventDefault()
-    const newDay = new Date();
-    const todayNum = newDay.getDay();
-    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
-                        "Friday", "Saturday"];
-    const today = weekdays[todayNum]
+    let today = ""
+    if(!e.target['deal-day'].value){
+      const newDay = new Date();
+      const todayNum = newDay.getDay();
+      const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
+      today = weekdays[todayNum]
+    }
+    else{
+      const dayInput = e.target['deal-day'].value.toLowerCase();
+      today = dayInput.charAt(0).toUpperCase() + dayInput.slice(1)
+    }
+
     const newDeal = {
       name: e.target['deal-name'].value,
       content: e.target['deal-content'].value,
@@ -66,6 +74,12 @@ export default class AddDeal extends React.Component{
                      Distance from Home (miles)
                  </label>
                  <input type="number" id='deal-distance-input' name='deal-distance'/>
+             </div>
+             <div className="field">
+                 <label htmlFor="deal-day-input">
+                     Day of the Week
+                 </label>
+                 <input type="text" id='deal-day-input' name='deal-day'/>
              </div>
              <div className="field">
                  <label htmlFor="deal-content-input">

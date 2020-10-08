@@ -4,12 +4,12 @@ import Nav from '../Nav/Nav'
 import HomeForm from '../HomeForm/HomeForm'
 import config from '../../config'
 import AddDeal from '../AddDeal/AddDeal'
-//import LoginForm from '../LoginForm/LoginForm'
-//import RegistrationForm from '../RegistrationForm/RegistrationForm'
+import LoginForm from '../LoginForm/LoginForm'
+import RegistrationForm from '../RegistrationForm/RegistrationForm'
 import DealItemExpanded from '../DealItemExpanded/DealItemExpanded'
 import DealItem from '../DealItem/DealItem'
 import AllList from '../AllList/AllList'
-//import WeekForm from '../WeekForm/WeekForm'
+import WeekForm from '../WeekForm/WeekForm'
 import ApiContext from '../../contexts/ApiContext'
 import About from '../About/About'
 
@@ -21,7 +21,8 @@ class App extends React.Component {
   
   state = {
     deals : [], 
-    day: ""
+    day: "", 
+    filter: "price"
   };
 
   componentDidMount(){
@@ -34,7 +35,9 @@ class App extends React.Component {
         return dealsRes.json()
       })
       .then((deals) => {
-        this.setState({deals})
+        this.setState({
+          deals: deals,
+        })
       })
       .catch(error => {
         console.log({error})
@@ -67,10 +70,22 @@ class App extends React.Component {
     return deals.filter(deal => deal.day === weekdays[thisDay])
 }
 
-findDeal = (deals, dealId) => {
-    const newDeal = deals.find(deal => deal.id === dealId)
-    console.log(newDeal)
-    return newDeal;
+
+filterDeals = filter => {
+    if(filter.toLowerCase() == "price"){
+        this.setState({
+          filter: "price"
+        })
+    }
+    else {
+      this.setState({
+        filter: "distance"
+      })
+    }
+}
+
+filterWeekDay = (deals, day) => {
+   return deals.filter(deal => deal.day.toLowerCase() === day.toLowerCase())
 }
   
   
@@ -86,14 +101,14 @@ findDeal = (deals, dealId) => {
           path='/add-deal'
           component={AddDeal}
         />
-        {/* <Route
+        <Route
           path='/login'
           component={LoginForm}
         />
         <Route
           path='/register'
           component={RegistrationForm}
-        /> */}
+        />
         <Route
           path='/deals/:dealId'
           component={DealItemExpanded}
@@ -103,10 +118,10 @@ findDeal = (deals, dealId) => {
           path='/deals'
           component={AllList}
         />
-        {/* <Route
+        <Route
           path='/my-week'
           component={WeekForm}
-        /> */}
+        />
         <Route
           path='/about'
           component={About}
@@ -120,10 +135,11 @@ findDeal = (deals, dealId) => {
   render(){
     const value = {
       deals: this.state.deals,
+      filter: this.state.filter,
       addDeal: this.handleAddDeal,
       deleteDeal: this.handleDeleteDeal,
       filterDay: this.filterDay,
-      findDeal: this.findDeal,
+      filterDeals: this.filterDeals,
     }
     return (
       <ApiContext.Provider value={value}>

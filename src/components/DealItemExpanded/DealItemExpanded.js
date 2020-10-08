@@ -26,9 +26,13 @@ export default class DealItemExpanded extends React.Component {
         const deal = this.findDeal(deals, dealId) 
         console.log(deal)
         return (
-          <section className='DealExpanded'>
-            <p>{deal.name}</p>
-          </section>
+          <div className='DealExpanded'>
+            <h3 className="dealItemName">{deal.name}</h3>
+            <h5 className="dealItemPrice">{deal.price}</h5>
+            <h5 className="dealItemDay">{deal.day}</h5>
+            <h5 className="dealItemDistance">{deal.distance} miles away from home</h5>
+            <p>{deal.content}</p>
+          </div>
         )
       }
 
