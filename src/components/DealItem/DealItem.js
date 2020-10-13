@@ -2,6 +2,8 @@ import React from 'react'
 import ApiContext from '../../contexts/ApiContext';
 import config from '../../config'
 import {Link} from 'react-router-dom'
+import './DealItem.css'
+import TokenService from '../../services/token-service'
 
 export default class DealItem extends React.Component{
 static contextType = ApiContext;
@@ -13,6 +15,7 @@ static contextType = ApiContext;
     fetch(`${config.API_ENDPOINT}/deals/${dealId}`, {
       method: 'DELETE',
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
     })
@@ -33,13 +36,18 @@ static contextType = ApiContext;
       const { day, distance, price, name, id, content } = this.props;
       return (
           <div className="DealObj">
+            <div className="topLine">
                 <h3 className="deal_title">
                    <Link to={`/deals/${id}`}>  
                      {name}
                     </Link>
                 </h3>
-      <p>{content}, {price}</p>
+          <h4>${price}.00</h4>
+      
+
           <button className="deleteBtn" onClick={e => this.handleClickDelete(e)}>delete</button>          
+          </div>
+          <p>{content}</p>
           </div>
       )
   }

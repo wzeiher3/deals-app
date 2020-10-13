@@ -12,6 +12,9 @@ import AllList from '../AllList/AllList'
 import WeekForm from '../WeekForm/WeekForm'
 import ApiContext from '../../contexts/ApiContext'
 import About from '../About/About'
+import PrivateRoute from '../Utils/PrivateRoute'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+import TokenService from '../../services/token-service'
 
 
 
@@ -22,12 +25,18 @@ class App extends React.Component {
   state = {
     deals : [], 
     day: "", 
-    filter: "price"
+    filter: ""
   };
 
   componentDidMount(){
    
-      fetch(`${config.API_ENDPOINT}/deals`)
+      fetch(`${config.API_ENDPOINT}/deals`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `bearer ${TokenService.getAuthToken()}`,
+          
+        },
+      })
       .then((dealsRes) => {
         if(!dealsRes.ok)
           return dealsRes.json().then(e => Promise.reject(e))
@@ -101,15 +110,15 @@ filterWeekDay = (deals, day) => {
           path='/add-deal'
           component={AddDeal}
         />
-        <Route
+        <PublicOnlyRoute
           path='/login'
           component={LoginForm}
         />
-        <Route
+        <PublicOnlyRoute
           path='/register'
           component={RegistrationForm}
         />
-        <Route
+        <PrivateRoute
           path='/deals/:dealId'
           component={DealItemExpanded}
         />
@@ -153,7 +162,12 @@ filterWeekDay = (deals, day) => {
             </h1>
           </header>
           <main className='App__main'>
+            <div className="bg"></div>
+            <div className="bg bg2"></div>
+           <div className="bg bg3"></div>
+            <div className="content">
             {this.renderMainRoutes()}
+            </div>
           </main>
         </div>
       </ApiContext.Provider>

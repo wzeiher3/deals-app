@@ -1,6 +1,7 @@
 import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
 import config from '../../config'
+import TokenService from '../../services/token-service';
 
 export default class AddDeal extends React.Component {
     
@@ -30,10 +31,11 @@ export default class AddDeal extends React.Component {
     }
 
     console.log(newDeal)
-
+    console.log(TokenService.getAuthToken())
     fetch(`${config.API_ENDPOINT}/deals`, {
       method: 'POST',
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
       body: JSON.stringify(newDeal),
@@ -73,7 +75,7 @@ export default class AddDeal extends React.Component {
                  <label htmlFor="deal-distance-input">
                      Distance from Home (miles)
                  </label>
-                 <input type="number" id='deal-distance-input' name='deal-distance'/>
+                 <input type="number" id='deal-distance-input' name='deal-distance' step=".01"/>
              </div>
              <div className="field">
                  <label htmlFor="deal-day-input">

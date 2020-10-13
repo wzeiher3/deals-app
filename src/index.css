@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: -webkit-linear-gradient(left, #1e1f8b 20px, transparent 1%) center, -webkit-linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+  background: linear-gradient(90deg, #1e1f8b 20px, transparent 1%) center, linear-gradient(#1e1f8b 20px, transparent 1%) center, #9192FB;
+  background-size: 22px 22px; */
 }
 
 code {
@@ -28,7 +31,7 @@ body {
 nav,
 footer {
   padding: 1% 0;
-  background-color: #aaa;
+  background-color: #a7a7a7;
 }
 header {
   padding: 3% 0;
@@ -41,4 +44,74 @@ header {
 
 .DealObj{
   background-color: #aaa;
+}
+
+h1 a{
+  color: rgba(224, 22, 66, 0.333);
+  font-family: Helvetica, sans-serif;
+  text-decoration: none;
+
+}
+
+
+
+/* //////////////////////////////////////////////////////// */
+
+html {
+  height:100%;
+}
+
+body {
+  margin:0;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, rgb(26, 226, 59) 50%, rgb(99, 32, 207) 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+.content {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  width: 70%;
+  padding:5vmin;
+  padding-right: 50px;
+  padding-left: 50px;
+  position:fixed;
+  text-align:center;
+  top:60%;
+  transform:translate(-50%, -50%);
+  
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
 }

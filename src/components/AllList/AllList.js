@@ -1,6 +1,7 @@
 import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
 import DealItem from '../DealItem/DealItem'
+import './AllList.css'
 
 
 export default class AllList extends React.Component{

@@ -1,0 +1,13 @@
+.DealObj{
+    display: flex;
+    flex-direction: column;
+}
+
+.topLine{
+    display: flex;
+    flex-direction: row;
+}
+
+.deleteBtn{
+    
+}

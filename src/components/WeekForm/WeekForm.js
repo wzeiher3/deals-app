@@ -135,8 +135,7 @@ export default class WeekForm extends React.Component{
                     )}
               </div>
               <br/>
-
-          </div>
+            </div>
       )
     }
 

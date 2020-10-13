@@ -1,6 +1,7 @@
 import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
 import DealItem from '../DealItem/DealItem'
+import './HomeForm.css'
 
 export default class HomeForm extends React.Component {
     static contextType = ApiContext;
@@ -11,6 +12,7 @@ export default class HomeForm extends React.Component {
         const todaysDeals = this.context.filterDay(deals);
         return (
             <div className="HomePage">
+                    
                 <h2>Your Deals for Today!</h2> 
                 {todaysDeals.map(deal => 
                     <DealItem 
@@ -25,6 +27,7 @@ export default class HomeForm extends React.Component {
                     />
                 )}
             </div>
+        
         )
     }
 }
