@@ -10,6 +10,7 @@ export default class HomeForm extends React.Component {
     render(){
         const {deals} = this.context;
         const todaysDeals = this.context.filterDay(deals);
+        // this.context.toggleLogIn();
         return (
             <div className="HomePage">
                     

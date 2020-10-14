@@ -36,10 +36,11 @@ export default class AllList extends React.Component{
         <div className="All">
             <h2>All Deals</h2>
             <label htmlFor="filter" className="labels">Sort: </label>
-            <select className="filter" id="filter" name="filter" defaultValue="price" onChange={this.handleFilter}>
-                <option value="price">Price</option>            
-                <option value="distance">Distance</option>                                              
+            <select className="filter" id="filter" name="filter"  onChange={this.handleFilter}>
+                <option value="distance">Distance</option> 
+                <option value="price">Price</option>                                                         
           </select>
+          <ApiContext.Consumer>
             <div className="AllDealsList">
                 {deals.map(deal => 
                     <DealItem 
@@ -53,6 +54,7 @@ export default class AllList extends React.Component{
                     />
                 )}
             </div>
+            </ApiContext.Consumer>
         </div>
       )
     }

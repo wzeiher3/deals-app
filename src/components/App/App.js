@@ -21,15 +21,14 @@ import TokenService from '../../services/token-service'
 //import './App.css';
 
 class App extends React.Component {
+    state = {
+      deals: []
+    }
   
-  state = {
-    deals : [], 
-    day: "", 
-    filter: ""
-  };
+  static contextType = ApiContext;
 
   componentDidMount(){
-   
+      console.log(this.context)
       fetch(`${config.API_ENDPOINT}/deals`, {
         method: 'GET',
         headers: {
@@ -44,58 +43,67 @@ class App extends React.Component {
         return dealsRes.json()
       })
       .then((deals) => {
-        this.setState({
-          deals: deals,
-        })
+        // this.setState({
+        //   deals: deals
+        // })
+
+        console.log(deals)
+
+        this.context.setDeals(deals)
       })
       .catch(error => {
         console.log({error})
       })
   }
+
+  componentDidUpdate(){
+      
+  }
   
-  handleAddDeal = deal => {
-      this.setState({
-        deals: [
-            ...this.state.deals,
-            deal
-        ]
-      })
-  }
+//   handleAddDeal = deal => {
+//       this.setState({
+//         deals: [
+//             ...this.state.deals,
+//             deal
+//         ]
+//       })
+//   }
 
-  handleDeleteDeal = dealId => {
-    this.setState({
-      deals: this.state.deals.filter(deal => deal.id !== dealId)
-    })
-  }
+ 
+//   handleDeleteDeal = dealId => {
+//     this.setState({
+//       deals: this.state.deals.filter(deal => deal.id !== dealId)
+//     })
+//   }
 
-  filterDay = deals => {
-    //const { deals } = this.context;
-    const date = new Date();
-    const thisDay = date.getDay();
+//   filterDay = deals => {
+//     //const { deals } = this.context;
+//     const date = new Date();
+//     const thisDay = date.getDay();
 
-    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
-                        "Friday", "Saturday"];
+//     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
+//                         "Friday", "Saturday"];
     
-    return deals.filter(deal => deal.day === weekdays[thisDay])
-}
+//     return deals.filter(deal => deal.day === weekdays[thisDay])
+// }
 
 
-filterDeals = filter => {
-    if(filter.toLowerCase() == "price"){
-        this.setState({
-          filter: "price"
-        })
-    }
-    else {
-      this.setState({
-        filter: "distance"
-      })
-    }
-}
+// filterDeals = filter => {
+//     if(filter.toLowerCase() == "price"){
+//         this.setState({
+//           filter: "price"
+//         })
+//     }
+//     else {
+//       this.setState({
+//         filter: "distance"
+//       })
+//     }
+// }
 
-filterWeekDay = (deals, day) => {
-   return deals.filter(deal => deal.day.toLowerCase() === day.toLowerCase())
-}
+// filterWeekDay = (deals, day) => {
+//    return deals.filter(deal => deal.day.toLowerCase() === day.toLowerCase())
+// }
   
   
   renderMainRoutes() {
@@ -142,16 +150,17 @@ filterWeekDay = (deals, day) => {
   
   
   render(){
-    const value = {
-      deals: this.state.deals,
-      filter: this.state.filter,
-      addDeal: this.handleAddDeal,
-      deleteDeal: this.handleDeleteDeal,
-      filterDay: this.filterDay,
-      filterDeals: this.filterDeals,
-    }
+    // const value = {
+    //   deals: this.state.deals,
+    //   filter: this.state.filter,
+    //   logIn: this.state.logIn,
+    //   addDeal: this.handleAddDeal,
+    //   deleteDeal: this.handleDeleteDeal,
+    //   filterDay: this.filterDay,
+    //   filterDeals: this.filterDeals,
+    // }
     return (
-      <ApiContext.Provider value={value}>
+     
         <div className='App'>
           <Nav />
           <header className='App__header'>
@@ -170,7 +179,7 @@ filterWeekDay = (deals, day) => {
             </div>
           </main>
         </div>
-      </ApiContext.Provider>
+      
     )
   }
 }

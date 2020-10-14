@@ -27,11 +27,11 @@ body {
   text-align: center;
   line-height: 1.5;
 }
-
 nav,
 footer {
   padding: 1% 0;
-  background-color: #a7a7a7;
+  background-color: #1463f7;
+  border-radius: 8px;
 }
 header {
   padding: 3% 0;
@@ -43,14 +43,14 @@ header {
 }
 
 .DealObj{
-  background-color: #aaa;
+  background-color: rgb(129, 179, 236);
 }
 
 h1 a{
-  color: rgba(224, 22, 66, 0.333);
+  color: rgb(228, 112, 4);
   font-family: Helvetica, sans-serif;
   text-decoration: none;
-
+  font-weight: bolder;
 }
 
 
@@ -67,7 +67,7 @@ body {
 
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, rgb(26, 226, 59) 50%, rgb(99, 32, 207) 50%);
+  background-image: linear-gradient(-60deg, rgb(26, 226, 59) 50%, rgb(138, 80, 231) 50%);
   bottom:0;
   left:-50%;
   opacity:.5;
@@ -96,15 +96,15 @@ body {
   padding:5vmin;
   padding-right: 50px;
   padding-left: 50px;
-  position:fixed;
+  margin: 0 auto;
   text-align:center;
   top:60%;
-  transform:translate(-50%, -50%);
-  
+  /* transform:translate(-50%, -50%); */
 }
 
 h1 {
   font-family:monospace;
+  color: orange;
 }
 
 @keyframes slide {

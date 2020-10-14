@@ -1,11 +1,14 @@
 import React from 'react'
 import AuthApiService from '../../services/auth-api-service'
-import TokenService from '../../services/token-service'          
+import TokenService from '../../services/token-service'  
+import {Link } from 'react-router-dom'        
+import ApiContext from '../../contexts/ApiContext'
 
 export default class LoginForm extends React.Component{
     state = {
         error: null
     }
+     static contextType = ApiContext;
     
     handleSubmitJwtAuth = ev => {
           ev.preventDefault()
@@ -20,7 +23,8 @@ export default class LoginForm extends React.Component{
               TokenService.saveAuthToken(res.authToken)
               console.log(res.authToken)
               this.props.history.push('/')
-              
+              this.context.logIn = TokenService.hasAuthToken()
+              console.log("Login Form click", this.context.logIn)
             })
            .catch(res => {
               console.log(res)
@@ -52,6 +56,7 @@ export default class LoginForm extends React.Component{
                 </div>
                 <div className="buttons">
                     <button type="submit">Submit</button>
+                    <button type="submit"><Link to='/register'>Register</Link></button>
                 </div>
             </form>
         )

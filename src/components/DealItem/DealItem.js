@@ -4,6 +4,7 @@ import config from '../../config'
 import {Link} from 'react-router-dom'
 import './DealItem.css'
 import TokenService from '../../services/token-service'
+import './DealItem.css'
 
 export default class DealItem extends React.Component{
 static contextType = ApiContext;
@@ -33,7 +34,7 @@ static contextType = ApiContext;
   }
 
   render(){
-      const { day, distance, price, name, id, content } = this.props;
+      const { price, name, id, content } = this.props;
       return (
           <div className="DealObj">
             <div className="topLine">
@@ -45,7 +46,16 @@ static contextType = ApiContext;
           <h4>${price}.00</h4>
       
 
-          <button className="deleteBtn" onClick={e => this.handleClickDelete(e)}>delete</button>          
+          {/* <button className="deleteBtn" onClick={e => this.handleClickDelete(e)}>Delete</button> 
+                    */}
+
+<div className="icon-trash" onClick={e => this.handleClickDelete(e)}>
+    <div className="trash-lid" ></div>
+    <div className="trash-container" ></div>
+    <div className="trash-line-1"></div>
+    <div className="trash-line-2"></div>
+    <div className="trash-line-3"></div>
+  </div>
           </div>
           <p>{content}</p>
           </div>

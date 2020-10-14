@@ -2,6 +2,7 @@ import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
 import config from '../../config'
 import TokenService from '../../services/token-service';
+import './AddDeal.css'
 
 export default class AddDeal extends React.Component {
     
@@ -66,7 +67,7 @@ export default class AddDeal extends React.Component {
                  <input type="text" id='deal-name-input' name='deal-name'/>
              </div>
              <div className="field">
-                 <label htmlFor="deal-price-input">
+                 <label htmlFor="deal-price-input" step=".01"> 
                      Price
                  </label>
                  <input type="number" id='deal-price-input' name='deal-price'/>
