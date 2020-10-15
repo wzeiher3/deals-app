@@ -1,4 +1,6 @@
 import React from 'react'
+import TokenService from '../services/token-service'
+import config from '../config'
 
 const ApiContext = React.createContext({
     deals: [], 
@@ -8,8 +10,8 @@ const ApiContext = React.createContext({
     deleteDeal: () => {}, 
     filterDay: () => {},
     filterDeals: () => {},
-    togglelogIn: () => {}, 
-    setDeals: () => {}
+    fetchDeals: () => {}, 
+    setDeals: () => {},
 })
 
 export default ApiContext
@@ -19,14 +21,13 @@ export class ApiContextProvider extends React.Component {
         filter: "", 
         day: "", 
         deals: [],
-        logIn: false
+        logIn: TokenService.hasAuthToken(),
       }
 
-    togglelogIn = () => {
-        console.log("toggled", this.state.logIn)
-        this.setState({
-            logIn: !this.state.logIn
-        })
+
+
+    componentDidMount(){
+        this.fetchDeals();
     }
 
     handleAddDeal = deal => {
@@ -80,6 +81,44 @@ export class ApiContextProvider extends React.Component {
   filterWeekDay = (deals, day) => {
      return deals.filter(deal => deal.day.toLowerCase() === day.toLowerCase())
   }
+
+  fetchDeals = () => {
+    this.setState({ 
+      logIn: TokenService.hasAuthToken()
+    })
+
+    if(!TokenService.hasAuthToken()){
+       this.setState({
+          deals: []
+       })
+    }
+    else  fetch(`${config.API_ENDPOINT}/deals`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        
+      },
+    })
+    .then((dealsRes) => {
+      if(!dealsRes.ok)
+        return dealsRes.json().then(e => Promise.reject(e))
+
+      return dealsRes.json()
+    })
+    .then((deals) => {
+      // this.setState({
+      //   deals: deals
+      // })
+
+      console.log(deals)
+      this.setState({
+        deals: deals
+      })
+    })
+    .catch(error => {
+      console.log({error})
+    })
+  }
     
 
     render(){
@@ -91,8 +130,8 @@ export class ApiContextProvider extends React.Component {
             deleteDeal: this.handleDeleteDeal,
             filterDay: this.filterDay,
             filterDeals: this.filterDeals,
-            toggleLogIn: this.togglelogIn, 
-            setDeals: this.setDeals
+            setDeals: this.setDeals,
+            fetchDeals: this.fetchDeals,
           }
           return (
               <ApiContext.Provider value={value}>

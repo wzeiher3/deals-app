@@ -22,9 +22,10 @@ export default class LoginForm extends React.Component{
             .then(res => {
               TokenService.saveAuthToken(res.authToken)
               console.log(res.authToken)
-              this.props.history.push('/')
-              this.context.logIn = TokenService.hasAuthToken()
+    
+              this.context.fetchDeals();
               console.log("Login Form click", this.context.logIn)
+              this.props.history.push('/')
             })
            .catch(res => {
               console.log(res)
@@ -35,7 +36,6 @@ export default class LoginForm extends React.Component{
     
     render(){
         const {error} = this.state;
-        console.log(error);
 
         return (
             <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
@@ -52,7 +52,7 @@ export default class LoginForm extends React.Component{
                     <label htmlFor="password_input">
                         Password 
                     </label>
-                    <input type="text" id="password_input" name="password" />
+                    <input type="password" id="password_input" name="password" />
                 </div>
                 <div className="buttons">
                     <button type="submit">Submit</button>

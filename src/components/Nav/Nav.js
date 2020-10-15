@@ -8,16 +8,7 @@ import './Nav.css'
 export default class Nav extends React.Component {
     static contextType = ApiContext;
   
-    state = {
-      logIn: false
-    }
   
-    componentDidMount(){
-      this.setState({
-        logIn: TokenService.hasAuthToken()
-      })
-    }
-
 
   //   componentDidUpdate(previous){
   //     console.log("previous", previous)
@@ -27,11 +18,7 @@ export default class Nav extends React.Component {
   
     handleLogoutClick = () => {
         TokenService.clearAuthToken()
-        this.setState({
-          logIn: TokenService.hasAuthToken()
-        },() => console.log("Nav logout click", this.state.logIn))
-        this.context.logIn = TokenService.hasAuthToken();
-        console.log("Nav logout click", this.state.logIn)
+        this.context.fetchDeals();
       }
     
     renderLoginLink() {
@@ -58,7 +45,7 @@ export default class Nav extends React.Component {
       }
     
     render(){
-      const {logIn} = this.state;
+      const {logIn} = this.context;
         return (
             <div>
                 <nav>

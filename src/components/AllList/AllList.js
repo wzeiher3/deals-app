@@ -40,7 +40,7 @@ export default class AllList extends React.Component{
                 <option value="distance">Distance</option> 
                 <option value="price">Price</option>                                                         
           </select>
-          <ApiContext.Consumer>
+          
             <div className="AllDealsList">
                 {deals.map(deal => 
                     <DealItem 
@@ -54,7 +54,6 @@ export default class AllList extends React.Component{
                     />
                 )}
             </div>
-            </ApiContext.Consumer>
         </div>
       )
     }

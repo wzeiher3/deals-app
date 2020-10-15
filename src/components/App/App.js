@@ -27,38 +27,6 @@ class App extends React.Component {
   
   static contextType = ApiContext;
 
-  componentDidMount(){
-      console.log(this.context)
-      fetch(`${config.API_ENDPOINT}/deals`, {
-        method: 'GET',
-        headers: {
-          'Authorization': `bearer ${TokenService.getAuthToken()}`,
-          
-        },
-      })
-      .then((dealsRes) => {
-        if(!dealsRes.ok)
-          return dealsRes.json().then(e => Promise.reject(e))
-
-        return dealsRes.json()
-      })
-      .then((deals) => {
-        // this.setState({
-        //   deals: deals
-        // })
-
-        console.log(deals)
-
-        this.context.setDeals(deals)
-      })
-      .catch(error => {
-        console.log({error})
-      })
-  }
-
-  componentDidUpdate(){
-      
-  }
   
 //   handleAddDeal = deal => {
 //       this.setState({
@@ -130,12 +98,12 @@ class App extends React.Component {
           path='/deals/:dealId'
           component={DealItemExpanded}
         />
-        <Route
+        <PrivateRoute
           exact
           path='/deals'
           component={AllList}
         />
-        <Route
+        <PrivateRoute
           path='/my-week'
           component={WeekForm}
         />

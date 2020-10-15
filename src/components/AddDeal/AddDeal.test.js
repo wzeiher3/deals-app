@@ -10,4 +10,4 @@ describe(`AddDeal component`, () => {
       expect(toJson(wrapper)).toMatchSnapshot()
     })
   
-  })
+})

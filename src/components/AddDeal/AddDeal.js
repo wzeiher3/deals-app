@@ -70,7 +70,7 @@ export default class AddDeal extends React.Component {
                  <label htmlFor="deal-price-input" step=".01"> 
                      Price
                  </label>
-                 <input type="number" id='deal-price-input' name='deal-price'/>
+                 <input type="number" id='deal-price-input' name='deal-price' step=".01"/>
              </div>
              <div className="field">
                  <label htmlFor="deal-distance-input">
