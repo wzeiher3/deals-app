@@ -13,4 +13,4 @@ Within src, the main context of the project is located under the contexts folder
 
 ## Tech Stack
 
-HTML5, CSS3, React.js, PostgresQL, Git, 
+HTML5, CSS3, React.js, PostgresQL, Git, Github, DBeaver, JWT
