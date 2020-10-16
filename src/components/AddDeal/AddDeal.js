@@ -23,10 +23,12 @@ export default class AddDeal extends React.Component {
       today = dayInput.charAt(0).toUpperCase() + dayInput.slice(1)
     }
 
+    console.log(e.target['deal-price'].value)
+    
     const newDeal = {
       name: e.target['deal-name'].value,
       content: e.target['deal-content'].value,
-      price: e.target['deal-price'].value,
+      price: (e.target['deal-price'].value * 100),
       distance: e.target['deal-distance'].value,
       day: today,
     }
@@ -76,7 +78,7 @@ export default class AddDeal extends React.Component {
                  <label htmlFor="deal-distance-input">
                      Distance from Home (miles)
                  </label>
-                 <input type="number" id='deal-distance-input' name='deal-distance' step=".01"/>
+                 <input type="number" id='deal-distance-input' name='deal-distance' />
              </div>
              <div className="field">
                  <label htmlFor="deal-day-input">

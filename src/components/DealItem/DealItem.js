@@ -43,7 +43,7 @@ static contextType = ApiContext;
                      {name}
                     </Link>
                 </h3>
-          <h4>${price}.00</h4>
+          <h4>${(price/100)}</h4>
       
 
           {/* <button className="deleteBtn" onClick={e => this.handleClickDelete(e)}>Delete</button> 

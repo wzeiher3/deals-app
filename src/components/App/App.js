@@ -12,8 +12,8 @@ import AllList from '../AllList/AllList'
 import WeekForm from '../WeekForm/WeekForm'
 import ApiContext from '../../contexts/ApiContext'
 import About from '../About/About'
-import PrivateRoute from '../Utils/PrivateRoute'
-import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+import PrivateRoute from '../../routes/PrivateRoute'
+import PublicOnlyRoute from '../../routes/PublicOnlyRoute'
 import TokenService from '../../services/token-service'
 
 

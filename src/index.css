@@ -115,3 +115,243 @@ h1 {
     transform:translateX(25%);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* background: -webkit-linear-gradient(left, #1e1f8b 20px, transparent 1%) center, -webkit-linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+    background: linear-gradient(90deg, #1e1f8b 20px, transparent 1%) center, linear-gradient(#1e1f8b 20px, transparent 1%) center, #9192FB;
+    background-size: 22px 22px; */
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Open Sans",
+    sans-serif; 
+    font-size: 20px;
+    color: #444;
+    text-align: center;
+    line-height: 1.5;
+  }
+  nav,
+  footer {
+    padding: 1% 0;
+    background-color: #1463f7;
+    border-radius: 8px;
+  }
+  header {
+    padding: 3% 0;
+  }
+  
+  .field{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .DealObj{
+    background-color: rgb(129, 179, 236);
+  }
+  
+  h1 a{
+    color: rgb(228, 112, 4);
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+  
+  
+  
+  /* //////////////////////////////////////////////////////// */
+  
+  html {
+    height:100%;
+  }
+  
+  body {
+    margin:0;
+  }
+  
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgb(26, 226, 59) 50%, rgb(138, 80, 231) 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  .content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    width: 70%;
+    padding:5vmin;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin: 0 auto;
+    text-align:center;
+    top:60%;
+    /* transform:translate(-50%, -50%); */
+  }
+  
+  h1 {
+    font-family:monospace;
+    color: orange;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* background: -webkit-linear-gradient(left, #1e1f8b 20px, transparent 1%) center, -webkit-linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+    background: linear-gradient(90deg, #1e1f8b 20px, transparent 1%) center, linear-gradient(#1e1f8b 20px, transparent 1%) center, #9192FB;
+    background-size: 22px 22px; */
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Open Sans",
+    sans-serif; 
+    font-size: 20px;
+    color: #444;
+    text-align: center;
+    line-height: 1.5;
+  }
+  nav,
+  footer {
+    padding: 1% 0;
+    background-color: #1463f7;
+    border-radius: 8px;
+  }
+  header {
+    padding: 3% 0;
+  }
+  
+  .field{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .DealObj{
+    background-color: rgb(129, 179, 236);
+  }
+  
+  h1 a{
+    color: rgb(228, 112, 4);
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+  
+  
+  
+  /* //////////////////////////////////////////////////////// */
+  
+  html {
+    height:100%;
+  }
+  
+  body {
+    margin:0;
+  }
+  
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgb(26, 226, 59) 50%, rgb(138, 80, 231) 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  .content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    width: 70%;
+    padding:5vmin;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin: 0 auto;
+    text-align:center;
+    top:60%;
+    /* transform:translate(-50%, -50%); */
+  }
+  
+  h1 {
+    font-family:monospace;
+    color: orange;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+}

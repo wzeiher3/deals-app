@@ -40,11 +40,7 @@ describe(`DealItemExpanded component`, () => {
       const ThisContext = React.createContext({
         deals: []
       })
-
-
-      
-      
-      
+     
       ReactDOM.render(<ThisContext.Provider value={deals}><DealItemExpanded match={{params:{dealId:deals[0].id}}}/></ThisContext.Provider>, section)
 
       ReactDOM.unmountComponentAtNode(section)
