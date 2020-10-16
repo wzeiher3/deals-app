@@ -17,7 +17,7 @@
     text-transform: uppercase;
   }
 
-  /*
+  
   .a:before, .a:after {
     --i: var(--p);
     --j: calc(1 - var(--i));
@@ -86,4 +86,4 @@
     to {
       transform: translateY(0.75em);
     }
-  } */
+  }

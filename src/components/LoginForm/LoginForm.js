@@ -55,9 +55,9 @@ export default class LoginForm extends React.Component{
                     </label>
                     <input type="password" id="password_input" name="password" />
                 </div>
-                <div className="buttons">
-                    <button type="submit">Submit</button>
-                    <button type="submit"><Link to='/register'>Register</Link></button>
+                <div>
+                    <button type="submit" className="buttons">Submit</button>
+                    <button type="submit" className="buttons"><Link to='/register'>Register</Link></button>
                 </div>
             </form>
         )

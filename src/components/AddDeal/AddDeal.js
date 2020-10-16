@@ -1,6 +1,7 @@
 import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
 import config from '../../config'
+import $ from 'jquery'
 import TokenService from '../../services/token-service';
 import './AddDeal.css'
 
@@ -57,6 +58,7 @@ export default class AddDeal extends React.Component {
       })
   }
 
+
   render(){
       
       return (
@@ -92,8 +94,8 @@ export default class AddDeal extends React.Component {
                  </label>
                  <input type="text" id='deal-content-input' name='deal-content'/>
              </div>
-             <div className='buttons'>
-                <button type='submit'>
+             <div>
+                <button type='submit' className='buttons'>
                     Add Deal
                 </button>
             </div>    

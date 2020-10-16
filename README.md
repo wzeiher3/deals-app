@@ -14,3 +14,10 @@ Within src, the main context of the project is located under the contexts folder
 ## Tech Stack
 
 HTML5, CSS3, React.js, PostgresQL, Git, Github, DBeaver, JWT
+
+## Demo Accout
+
+These credentials allow anyone to access a demo account for the application
+
+username: dander
+password: password
