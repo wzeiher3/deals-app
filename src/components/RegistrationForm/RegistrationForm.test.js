@@ -1,14 +1,14 @@
 import React from 'react';
-import DealItem from './DealItem'
+import RegistrationForm from './RegistrationForm'
 import {BrowserRouter} from 'react-router-dom'
 import ReactDOM from 'react-dom'
 
-describe(`DealItem component`, () => {
+describe(`RegistrationForm component`, () => {
   
     it('renders without crashing', () => {
       const section = document.createElement('section');
 
-      ReactDOM.render(<BrowserRouter><DealItem /></BrowserRouter>, section)
+      ReactDOM.render(<RegistrationForm />, section)
 
       ReactDOM.unmountComponentAtNode(section)
     })

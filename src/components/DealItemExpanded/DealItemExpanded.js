@@ -11,11 +11,11 @@ export default class DealItemExpanded extends React.Component {
       }
       static contextType = ApiContext
       
-      findDeal(deals, dealId){
-          const newDeal = deals.find(deal => deal.id == dealId)
-          console.log(newDeal)
-            return newDeal
-      }
+      // findDeal(deals, dealId){
+      //     const newDeal = deals.find(deal => deal.id == dealId)
+      //     console.log(newDeal)
+      //       return newDeal
+      // }
       
       
       render() {
@@ -24,7 +24,7 @@ export default class DealItemExpanded extends React.Component {
         //console.log(dealId)
         console.log(deals)
         console.log(dealId)
-        const deal = this.findDeal(deals, dealId) 
+        const deal = deals.find(deal => deal.id == dealId) 
         console.log(deal)
         return (
           <div className='DealExpanded'>

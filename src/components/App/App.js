@@ -75,6 +75,48 @@ class App extends React.Component {
   
   
   renderMainRoutes() {
+    
+    if(!this.context.logIn){
+      return (
+        <>
+          <Route
+            exact
+            path='/'
+            component={About}
+          />
+          <PrivateRoute
+            path='/add-deal'
+            component={AddDeal}
+          />
+          <PublicOnlyRoute
+            path='/login'
+            component={LoginForm}
+          />
+          <PublicOnlyRoute
+            path='/register'
+            component={RegistrationForm}
+          />
+          <PrivateRoute
+            path='/deals/:dealId'
+            component={DealItemExpanded}
+          />
+          <PrivateRoute
+            exact
+            path='/deals'
+            component={AllList}
+          />
+          <PrivateRoute
+            path='/my-week'
+            component={WeekForm}
+          />
+          <Route
+            path='/about'
+            component={About}
+          />
+        </>
+      )
+    }
+    else{
     return (
       <>
         <Route
@@ -82,7 +124,7 @@ class App extends React.Component {
           path='/'
           component={HomeForm}
         />
-        <Route
+        <PrivateRoute
           path='/add-deal'
           component={AddDeal}
         />
@@ -113,6 +155,7 @@ class App extends React.Component {
         />
       </>
     )
+    }
   }
   
   
