@@ -8,7 +8,7 @@ const ApiContext = React.createContext({
     logIn: false,
     addDeal: () => {},
     deleteDeal: () => {}, 
-    filterDay: () => {},
+    filterDay: d=>d,
     filterDeals: () => {},
     fetchDeals: () => {}, 
     setDeals: () => {},
