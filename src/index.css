@@ -374,3 +374,7 @@ h1 {
 
 .buttons:hover {opacity: 1}
         
+a{
+  text-decoration: none;
+  color: white;
+}
