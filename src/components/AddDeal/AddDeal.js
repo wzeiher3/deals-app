@@ -1,7 +1,7 @@
 import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
 import config from '../../config'
-import $ from 'jquery'
+import ValidationError from '../../ValidationError'
 import TokenService from '../../services/token-service';
 import './AddDeal.css'
 
@@ -9,6 +9,57 @@ export default class AddDeal extends React.Component {
     
   static contextType = ApiContext;
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: {
+        value: '',
+        touched: false
+      },
+      price: {
+        value: '',
+        touched: false
+      },
+      distance: {
+        value: '',
+        touched: false
+      }, 
+      day: {
+        value: '',
+        touched: false
+      }, 
+      content: {
+        value: '',
+        touched: false
+      }
+    }
+  }
+  
+  
+
+  //Updates values from page into state
+  updateName(name) {
+    this.setState({ name: { value: name, touched: true } });
+  }
+  
+  updatePrice(price) {
+    this.setState({ price: { value: price, touched: true } });
+  }
+  
+  updateDistance(distance) {
+    this.setState({ distance: { value: distance, touched: true } });
+  }
+  
+  updateDay(day) {
+    this.setState({ day: { value: day, touched: true } });
+  }
+
+  updateContent(content) {
+    this.setState({ content: { value: content, touched: true } });
+  }
+
+
+  //handles the submit event for the form
   handleSubmit = e => {
     e.preventDefault()
     let today = ""
@@ -54,12 +105,41 @@ export default class AddDeal extends React.Component {
         this.props.history.push(`/`)
       })
       .catch(error => {
-        console.error({ error })
+        console.error('Error:', error)
       })
+  }
+
+  //beginning of validation 
+  validateName() {
+    const name= this.state.name.value.trim();
+
+    if(name.length === 0)
+      return "You must type the name of the deal";
+  }
+
+  // validatePrice(){
+  //     const price = this.state.price.value.trim();
+  //     let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
+      
+  //     for(let i = 0; i < price.length; i++){
+  //       if(!arr.includes(price[i]))
+  //         return "You must add a valid price";
+  //     }
+  // }
+
+  validateDistance(){
+    const distance = this.state.distance.value;
+
+    if(distance < 0)
+        return "enter a valid distance"
   }
 
 
   render(){
+
+      const nameError = this.validateName();
+      // const priceError = this.validatePrice();
+      const distanceError = this.validateDistance();
       
       return (
          <form className="AddDeal" onSubmit={e => this.handleSubmit(e)}>
@@ -68,34 +148,54 @@ export default class AddDeal extends React.Component {
                  <label htmlFor="deal-name-input">
                      Name
                  </label>
-                 <input type="text" id='deal-name-input' name='deal-name'/>
+                 <input type="text" id='deal-name-input' name='deal-name' 
+                        onChange={e => this.updateName(e.target.value)}/>
+                        {this.state.name.touched && <ValidationError message={nameError} />}
              </div>
              <div className="field">
                  <label htmlFor="deal-price-input" step=".01"> 
                      Price
                  </label>
-                 <input type="number" id='deal-price-input' name='deal-price' step=".01"/>
+                 <input type="number" id='deal-price-input' name='deal-price' step='.01'
+                        onChange={e => this.updatePrice(e.target.value)}/>
+                        {/* {this.state.price.touched && <ValidationError message={priceError} />} */}
+                        {this.state.price.touched} //
              </div>
              <div className="field">
                  <label htmlFor="deal-distance-input">
                      Distance from Home (miles)
                  </label>
-                 <input type="number" id='deal-distance-input' name='deal-distance' />
+                 <input type="number" id='deal-distance-input' name='deal-distance' 
+                        onChange={e => this.updateDistance(e.target.value)}/>
+                        {this.state.distance.touched && <ValidationError message={distanceError} />}
              </div>
              <div className="field">
                  <label htmlFor="deal-day-input">
                      Day of the Week
                  </label>
-                 <input type="text" id='deal-day-input' name='deal-day'/>
+                 <select id='deal-day-input' name='deal-day' onChange={e => this.updateDay(e.target.value)}>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                  </select>
              </div>
              <div className="field">
                  <label htmlFor="deal-content-input">
                      Description (optional)
                  </label>
-                 <input type="text" id='deal-content-input' name='deal-content'/>
+                 <input type="text" id='deal-content-input' name='deal-content'
+                          onChange={e => this.updateContent(e.target.value)}/>
              </div>
              <div>
-                <button type='submit' className='buttons'>
+                <button type='submit' className='buttons' disabled={
+                    this.validateName() ||
+                    this.validateDistance()  
+                    // this.validatePrice()
+                }>
                     Add Deal
                 </button>
             </div>    
