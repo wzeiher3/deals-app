@@ -1,7 +1,7 @@
 import React from 'react';
 import DealItemExpanded from './DealItemExpanded'
 import ReactDOM from 'react-dom'
-import {ApiContext} from '../../contexts/ApiContext'
+import ApiContext from '../../contexts/ApiContext'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
@@ -37,11 +37,8 @@ describe(`DealItemExpanded component`, () => {
         }
       ]
 
-      const ThisContext = React.createContext({
-        deals: []
-      })
      
-      ReactDOM.render(<ThisContext.Provider value={deals}><DealItemExpanded match={{params:{dealId:deals[0].id}}}/></ThisContext.Provider>, section)
+      ReactDOM.render(<ApiContext.Provider value={{deals}}><DealItemExpanded match={{params:{dealId:deals[0].id}}}/></ApiContext.Provider>, section)
 
       ReactDOM.unmountComponentAtNode(section)
     })
