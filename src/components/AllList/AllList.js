@@ -7,7 +7,7 @@ import './AllList.css'
 export default class AllList extends React.Component{
 
   
-  static contextType = ApiContext;
+  static contextType = ApiContext
  
   // filterList(deals) {
   //    if(document.getElementById("filter").value == "distance") {

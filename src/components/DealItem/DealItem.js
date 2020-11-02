@@ -1,5 +1,5 @@
 import React from 'react'
-import ApiContext from '../../contexts/ApiContext';
+import ApiContext from '../../contexts/ApiContext'
 import config from '../../config'
 import {Link} from 'react-router-dom'
 import './DealItem.css'
@@ -7,7 +7,7 @@ import TokenService from '../../services/token-service'
 import './DealItem.css'
 
 export default class DealItem extends React.Component{
-static contextType = ApiContext;
+static contextType = ApiContext
 
   handleClickDelete = e => {
     e.preventDefault()

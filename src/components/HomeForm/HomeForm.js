@@ -4,13 +4,12 @@ import DealItem from '../DealItem/DealItem'
 import './HomeForm.css'
 
 export default class HomeForm extends React.Component {
-    static contextType = ApiContext;
+    static contextType = ApiContext
 
     
     render(){
         const {deals} = this.context;
-        const todaysDeals = this.context.filterDay(deals);
-        // this.context.toggleLogIn();
+        const todaysDeals = this.context.filterDay(deals)
         return (
             <div className="HomePage">
                     

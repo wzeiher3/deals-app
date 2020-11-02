@@ -2,19 +2,17 @@ import React from 'react'
 import { Route, Link } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import HomeForm from '../HomeForm/HomeForm'
-import config from '../../config'
 import AddDeal from '../AddDeal/AddDeal'
 import LoginForm from '../LoginForm/LoginForm'
 import RegistrationForm from '../RegistrationForm/RegistrationForm'
 import DealItemExpanded from '../DealItemExpanded/DealItemExpanded'
-import DealItem from '../DealItem/DealItem'
 import AllList from '../AllList/AllList'
 import WeekForm from '../WeekForm/WeekForm'
 import ApiContext from '../../contexts/ApiContext'
 import About from '../About/About'
 import PrivateRoute from '../../routes/PrivateRoute'
 import PublicOnlyRoute from '../../routes/PublicOnlyRoute'
-import TokenService from '../../services/token-service'
+
 
 
 

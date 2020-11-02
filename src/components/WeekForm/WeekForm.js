@@ -20,7 +20,6 @@ export default class WeekForm extends React.Component{
       
       let allDays = [];
       deals.map(deal => allDays.push(deal.day.toLowerCase()))
-      console.log(allDays)
 
       return (
           <div className="MyWeekForm">

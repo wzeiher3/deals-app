@@ -9,7 +9,7 @@ export default class LoginForm extends React.Component{
     state = {
         error: null
     }
-     static contextType = ApiContext;
+     static contextType = ApiContext
     
     handleSubmitJwtAuth = ev => {
           ev.preventDefault()
@@ -22,14 +22,10 @@ export default class LoginForm extends React.Component{
           })
             .then(res => {
               TokenService.saveAuthToken(res.authToken)
-              console.log(res.authToken)
-    
               this.context.fetchDeals();
-              console.log("Login Form click", this.context.logIn)
               this.props.history.push('/')
             })
            .catch(res => {
-              console.log(res)
               this.setState({ error: 'failed to authenticate' })
             })
      }
@@ -57,7 +53,7 @@ export default class LoginForm extends React.Component{
                 </div>
                 <div>
                     <button type="submit" className="buttons">Submit</button>
-                    <button type="submit" className="buttons"><Link to='/register'>Register</Link></button>
+                    <button type="button" className="buttons"><Link to='/register'>Register</Link></button>
                 </div>
             </form>
         )

@@ -1,6 +1,5 @@
 import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
-import DealItem from '../DealItem/DealItem'
 import './DealItemExpanded.css'
 
 export default class DealItemExpanded extends React.Component {
@@ -11,21 +10,14 @@ export default class DealItemExpanded extends React.Component {
       }
       static contextType = ApiContext
       
-      // findDeal(deals, dealId){
-      //     const newDeal = deals.find(deal => deal.id == dealId)
-      //     console.log(newDeal)
-      //       return newDeal
-      // }
-      
       
       render() {
         const { deals } = this.context
         const { dealId } = this.props.match.params
-        //console.log(dealId)
-        console.log(deals)
-        console.log(dealId)
+        
+    
         const deal = deals.find(deal => deal.id == dealId) 
-        console.log(deal)
+        
         return (
           <div className='DealExpanded'>
             <h3 className="dealItemName">{deal.name}</h3>

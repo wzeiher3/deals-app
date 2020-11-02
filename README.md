@@ -11,11 +11,21 @@ All main components and testing are located within the components folder within 
 
 Within src, the main context of the project is located under the contexts folder. The main routes are under the routes folder. And the services used are under the services folder
 
+## Screenshots
+
+![deals App SS](https://user-images.githubusercontent.com/56980103/97820036-34103f80-1c7a-11eb-8514-5e059d7dc518.png)
+
+
+![SS deals-2](https://user-images.githubusercontent.com/56980103/97820116-92d5b900-1c7a-11eb-872c-7f14655a6b6f.png)
+
+
+![SS deals-3](https://user-images.githubusercontent.com/56980103/97820305-8e5dd000-1c7b-11eb-8259-d16110918a52.png)
+
 ## Tech Stack
 
 HTML5, CSS3, React.js, PostgresQL, Git, Github, DBeaver, JWT
 
-## Demo Accout
+## Demo Account
 
 These credentials allow anyone to access a demo account for the application
 

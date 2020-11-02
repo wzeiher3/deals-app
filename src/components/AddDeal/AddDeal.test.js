@@ -1,8 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import AddDeal from './AddDeal'
-import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom'
 
 describe(`AddDeal component`, () => {
@@ -40,7 +37,7 @@ describe(`AddDeal component`, () => {
       // const wrapper = shallow(<DealItem />)
       // expect(toJson(wrapper)).toMatchSnapshot()
 
-      const section = document.createElement('section');
+      const section = document.createElement('section')
 
       ReactDOM.render(<AddDeal />, section)
 

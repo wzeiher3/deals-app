@@ -58,7 +58,6 @@ export class ApiContextProvider extends React.Component {
   }
 
   setDeals = deals => {
-      console.log("Set Deals: ", deals)
     this.setState({
           deals: [...deals]
       })
@@ -106,9 +105,7 @@ export class ApiContextProvider extends React.Component {
       return dealsRes.json()
     })
     .then((deals) => {
-      // this.setState({
-      //   deals: deals
-      // })
+     
 
       console.log(deals)
       this.setState({

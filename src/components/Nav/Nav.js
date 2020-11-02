@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ApiContext from '../../contexts/ApiContext'
 import TokenService from '../../services/token-service'
 import './Nav.css'
@@ -8,13 +8,7 @@ import './Nav.css'
 export default class Nav extends React.Component {
     static contextType = ApiContext;
   
-  
 
-  //   componentDidUpdate(previous){
-  //     console.log("previous", previous)
-  //   if(this.context.logIn !== previous.logIn)
-  //        console.log("Nav ComponentDidmount", this.context)
-  // }
   
     handleLogoutClick = () => {
         TokenService.clearAuthToken()

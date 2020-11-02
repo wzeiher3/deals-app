@@ -1,14 +1,13 @@
-import React from 'react';
+import React from 'react'
 import DealItemExpanded from './DealItemExpanded'
 import ReactDOM from 'react-dom'
 import ApiContext from '../../contexts/ApiContext'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 
 describe(`DealItemExpanded component`, () => {
   
     it('renders without crashing', () => {
-      const section = document.createElement('section');
+      const section = document.createElement('section')
 
       const deals = [
         {

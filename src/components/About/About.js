@@ -17,7 +17,12 @@ export default function About(){
                 price. You can select the "My Week" tab in the nav 
                 and see which deals are on which days of the week. 
                 You can also select the "All Deals" tab to see a 
-                list of all your deals.</p>
+                list of all your deals. For a demo account, use these 
+                credentials: 
+                </p>
+
+                <p>Username: dander</p>
+                <p>Password: password</p>
         </div> 
     )
 }

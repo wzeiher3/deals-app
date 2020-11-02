@@ -2,12 +2,12 @@ import React from 'react'
 import ApiContext from '../../contexts/ApiContext'
 import config from '../../config'
 import ValidationError from '../../ValidationError'
-import TokenService from '../../services/token-service';
+import TokenService from '../../services/token-service'
 import './AddDeal.css'
 
 export default class AddDeal extends React.Component {
     
-  static contextType = ApiContext;
+  static contextType = ApiContext
 
   constructor(props) {
     super(props);
@@ -39,23 +39,23 @@ export default class AddDeal extends React.Component {
 
   //Updates values from page into state
   updateName(name) {
-    this.setState({ name: { value: name, touched: true } });
+    this.setState({ name: { value: name, touched: true } })
   }
   
   updatePrice(price) {
-    this.setState({ price: { value: price, touched: true } });
+    this.setState({ price: { value: price, touched: true } })
   }
   
   updateDistance(distance) {
-    this.setState({ distance: { value: distance, touched: true } });
+    this.setState({ distance: { value: distance, touched: true } })
   }
   
   updateDay(day) {
-    this.setState({ day: { value: day, touched: true } });
+    this.setState({ day: { value: day, touched: true } })
   }
 
   updateContent(content) {
-    this.setState({ content: { value: content, touched: true } });
+    this.setState({ content: { value: content, touched: true } })
   }
 
 
@@ -65,17 +65,17 @@ export default class AddDeal extends React.Component {
     let today = ""
     if(!e.target['deal-day'].value){
       const newDay = new Date();
-      const todayNum = newDay.getDay();
+      const todayNum = newDay.getDay()
       const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     
       today = weekdays[todayNum]
     }
     else{
-      const dayInput = e.target['deal-day'].value.toLowerCase();
+      const dayInput = e.target['deal-day'].value.toLowerCase()
       today = dayInput.charAt(0).toUpperCase() + dayInput.slice(1)
     }
 
-    console.log(e.target['deal-price'].value)
+   
     
     const newDeal = {
       name: e.target['deal-name'].value,
@@ -85,8 +85,7 @@ export default class AddDeal extends React.Component {
       day: today,
     }
 
-    console.log(newDeal)
-    console.log(TokenService.getAuthToken())
+    
     fetch(`${config.API_ENDPOINT}/deals`, {
       method: 'POST',
       headers: {
@@ -102,7 +101,7 @@ export default class AddDeal extends React.Component {
       })
       .then(deal => {
         this.context.addDeal(deal)
-        this.props.history.push(`/`)
+        this.props.history.push(`/deals`)
       })
       .catch(error => {
         console.error('Error:', error)
@@ -111,21 +110,18 @@ export default class AddDeal extends React.Component {
 
   //beginning of validation 
   validateName() {
-    const name= this.state.name.value.trim();
+    const name= this.state.name.value.trim()
 
     if(name.length === 0)
-      return "You must type the name of the deal";
+      return "You must type the name of the deal"
   }
 
-  // validatePrice(){
-  //     const price = this.state.price.value.trim();
-  //     let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
-      
-  //     for(let i = 0; i < price.length; i++){
-  //       if(!arr.includes(price[i]))
-  //         return "You must add a valid price";
-  //     }
-  // }
+  validatePrice(){
+    const price = this.state.price.value;
+
+    if(price < 0)
+        return "enter a valid price"
+  }
 
   validateDistance(){
     const distance = this.state.distance.value;
@@ -137,9 +133,9 @@ export default class AddDeal extends React.Component {
 
   render(){
 
-      const nameError = this.validateName();
-      // const priceError = this.validatePrice();
-      const distanceError = this.validateDistance();
+      const nameError = this.validateName()
+      const priceError = this.validatePrice()
+      const distanceError = this.validateDistance()
       
       return (
          <form className="AddDeal" onSubmit={e => this.handleSubmit(e)}>
@@ -158,8 +154,7 @@ export default class AddDeal extends React.Component {
                  </label>
                  <input type="number" id='deal-price-input' name='deal-price' step='.01'
                         onChange={e => this.updatePrice(e.target.value)}/>
-                        {/* {this.state.price.touched && <ValidationError message={priceError} />} */}
-                        {this.state.price.touched} //
+                        {this.state.price.touched && <ValidationError message={priceError} />} 
              </div>
              <div className="field">
                  <label htmlFor="deal-distance-input">
@@ -193,8 +188,8 @@ export default class AddDeal extends React.Component {
              <div>
                 <button type='submit' className='buttons' disabled={
                     this.validateName() ||
-                    this.validateDistance()  
-                    // this.validatePrice()
+                    this.validateDistance() || 
+                    this.validatePrice()
                 }>
                     Add Deal
                 </button>
