@@ -107,7 +107,6 @@ export class ApiContextProvider extends React.Component {
     .then((deals) => {
      
 
-      console.log(deals)
       this.setState({
         deals: deals
       })
