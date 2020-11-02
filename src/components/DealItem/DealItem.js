@@ -46,9 +46,6 @@ static contextType = ApiContext
           <h4>${(price/100)}</h4>
       
 
-          {/* <button className="deleteBtn" onClick={e => this.handleClickDelete(e)}>Delete</button> 
-                    */}
-
 <div className="icon-trash" onClick={e => this.handleClickDelete(e)}>
     <div className="trash-lid" ></div>
     <div className="trash-container" ></div>

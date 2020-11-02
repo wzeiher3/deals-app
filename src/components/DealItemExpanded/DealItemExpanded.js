@@ -10,7 +10,7 @@ export default class DealItemExpanded extends React.Component {
       }
       static contextType = ApiContext
       
-      
+      //shows expanded view of deal
       render() {
         const { deals } = this.context
         const { dealId } = this.props.match.params

@@ -6,7 +6,7 @@ import './HomeForm.css'
 export default class HomeForm extends React.Component {
     static contextType = ApiContext
 
-    
+    //Shows the deals for the current day
     render(){
         const {deals} = this.context;
         const todaysDeals = this.context.filterDay(deals)

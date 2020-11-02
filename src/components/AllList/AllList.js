@@ -9,22 +9,12 @@ export default class AllList extends React.Component{
   
   static contextType = ApiContext
  
-  // filterList(deals) {
-  //    if(document.getElementById("filter").value == "distance") {
-  //         deals.sort((a, b) => (a.distance > b.distance) ? 1: -1)  
-  //   }
-  //   else{
-  //       deals.sort((a, b) => (a.price > b.price) ? 1: -1)
-  //   }
-    
-  //   return deals;
-  // }
 
   handleFilter = event => {
     this.context.filterDeals(event.target.value)
   }
 
-
+  //prints list of all deals
     render(){  
       const {deals, filter} = this.context;
       if(filter == "price")

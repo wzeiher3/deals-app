@@ -25,53 +25,7 @@ class App extends React.Component {
   
   static contextType = ApiContext;
 
-  
-//   handleAddDeal = deal => {
-//       this.setState({
-//         deals: [
-//             ...this.state.deals,
-//             deal
-//         ]
-//       })
-//   }
-
- 
-//   handleDeleteDeal = dealId => {
-//     this.setState({
-//       deals: this.state.deals.filter(deal => deal.id !== dealId)
-//     })
-//   }
-
-//   filterDay = deals => {
-//     //const { deals } = this.context;
-//     const date = new Date();
-//     const thisDay = date.getDay();
-
-//     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
-//                         "Friday", "Saturday"];
-    
-//     return deals.filter(deal => deal.day === weekdays[thisDay])
-// }
-
-
-// filterDeals = filter => {
-//     if(filter.toLowerCase() == "price"){
-//         this.setState({
-//           filter: "price"
-//         })
-//     }
-//     else {
-//       this.setState({
-//         filter: "distance"
-//       })
-//     }
-// }
-
-// filterWeekDay = (deals, day) => {
-//    return deals.filter(deal => deal.day.toLowerCase() === day.toLowerCase())
-// }
-  
-  
+  //renders components
   renderMainRoutes() {
     
     if(!this.context.logIn){
@@ -159,15 +113,6 @@ class App extends React.Component {
   
   
   render(){
-    // const value = {
-    //   deals: this.state.deals,
-    //   filter: this.state.filter,
-    //   logIn: this.state.logIn,
-    //   addDeal: this.handleAddDeal,
-    //   deleteDeal: this.handleDeleteDeal,
-    //   filterDay: this.filterDay,
-    //   filterDeals: this.filterDeals,
-    // }
     return (
      
         <div className='App'>
@@ -176,7 +121,6 @@ class App extends React.Component {
             <h1>
               <Link to='/'>Deals Tracker</Link>
               {' '}
-              {/* <FontAwesomeIcon icon='check-double' /> */}
             </h1>
           </header>
           <main className='App__main'>

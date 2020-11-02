@@ -38,6 +38,8 @@ export default class Nav extends React.Component {
         )
       }
     
+
+      //renders the navigation bar
     render(){
       const {logIn} = this.context;
         return (
