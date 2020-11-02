@@ -21,7 +21,6 @@ export default class RegistrationForm extends React.Component{
             password: ev.target['password'].value,
         })
         .then(user => {
-            console.log(user)
             TokenService.makeBasicAuthToken(user.user_name, user.password)
             this.props.history.push('/deals')
       })
